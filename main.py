@@ -1,12 +1,15 @@
 import pandas as pd
 from transformers import pipeline
 
+
+
 def add_sentiment_scores_to_excel(input_excel_path, output_excel_path):
     # Load the Excel file into a DataFrame
     df = pd.read_excel(input_excel_path)
     
     # Initialize the sentiment analysis pipeline
     sentiment_pipeline = pipeline("sentiment-analysis")
+    #sentiment_pipeline = pipeline("text-classification", model="j-hartmann/emotion-english-distilroberta-base", return_all_scores=True)
 
     # Initialize lists to hold sentiment labels and scores
     sentiment_labels = []
